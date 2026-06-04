@@ -41,7 +41,22 @@ Then add the original repository as `upstream` so you can fetch future updates:
 ```bash
 git remote add upstream https://github.com/rasbt/LLMs-from-scratch.git
 git fetch upstream
-git merge upstream/main
+git checkout main
+git merge --ff-only upstream/main
+git push origin main
+
+git checkout my-notes
+git rebase main
+git push origin my-notes --force-with-lease
+```
+
+If your fork's `main` already has merge commits from earlier syncs, reset it to match `upstream/main` once and force-push with lease:
+
+```bash
+git checkout main
+git fetch upstream
+git reset --hard upstream/main
+git push origin main --force-with-lease
 ```
 
 If you do need to merge edited notebooks, consider installing [`nbdime`](https://nbdime.readthedocs.io/) to get notebook-aware diffs and merge tools:
