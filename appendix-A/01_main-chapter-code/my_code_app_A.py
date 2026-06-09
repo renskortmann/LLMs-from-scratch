@@ -152,13 +152,13 @@ def compute_accuracy(model, dataloader):
 print(f"correctness train_ds: {100*compute_accuracy(model, train_loader):.0f}%")
 print(f"correctness test_ds: {100*compute_accuracy(model, test_loader):.0f}%")
 
-torch.save(model.state_dict(), "model.pth")
+# torch.save(model.state_dict(), "model.pth")
 
-model = NeuralNetwork(3,2)
-print(model.layers[0].weight)
-model = NeuralNetwork(2,2)
-print(model.layers[0].weight)
+# model = NeuralNetwork(3,2)
+# print(model.layers[0].weight)
+# model = NeuralNetwork(2,2)
+# print(model.layers[0].weight)
 
-model.load_state_dict(torch.load("model.pth", weights_only=True))
-print(model)
-print(model.layers[0].weight)
+# model.load_state_dict(torch.load("model.pth", weights_only=True))
+# print(model)
+# print(model.layers[0].weight)
